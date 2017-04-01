@@ -12,6 +12,8 @@
         <activity android:name=".MainActivity" >
         </activity>
         <activity android:name=".test.list.main.AdapterActivity" >
+        </activity>
+        <activity android:name=".test.gridview.main.GirdViewActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
