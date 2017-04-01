@@ -21,6 +21,8 @@
         <activity android:name=".test.gridview.main.GirdViewActivity" >
         </activity>
         <activity android:name=".test.recycle.onekind.RecycleOnekindActivity" >
+        </activity>
+        <activity android:name=".test.recycle.morekind.RecycleMorekindActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

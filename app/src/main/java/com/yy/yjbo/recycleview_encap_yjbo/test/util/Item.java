@@ -8,7 +8,7 @@ public class Item {
     private int res;
     private String tv1;
     private String tv2;
-
+    private int type;//类型
 
     public Item(int res, String tv1, String tv2) {
         this.res = res;
@@ -16,6 +16,18 @@ public class Item {
         this.tv2 = tv2;
     }
 
+    public Item(int res, String tv1,int type) {
+        this.res = res;
+        this.tv1 = tv1;
+        this.type = type;
+    }
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
     public int getRes() {
         return res;
     }
