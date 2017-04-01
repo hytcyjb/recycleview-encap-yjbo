@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.ArrayList;
 

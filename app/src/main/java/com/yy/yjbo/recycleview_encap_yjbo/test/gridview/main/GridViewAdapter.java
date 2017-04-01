@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
-import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.Item;
-import com.yy.yjbo.recycleview_encap_yjbo.test.list.util.BaseAdapter;
-import com.yy.yjbo.recycleview_encap_yjbo.test.list.util.BaseViewHolder;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.BaseAdapter;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.BaseViewHolder;
 
 import java.util.List;
 

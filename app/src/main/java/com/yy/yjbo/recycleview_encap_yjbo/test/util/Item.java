@@ -1,4 +1,4 @@
-package com.yy.yjbo.recycleview_encap_yjbo.test.list.main;
+package com.yy.yjbo.recycleview_encap_yjbo.test.util;
 
 /**
  * Created by admin on 2017/4/1.

@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.widget.GridView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
-import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.Item;
-import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.SimpleAdapter;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.ArrayList;
 
