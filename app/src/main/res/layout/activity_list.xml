@@ -8,6 +8,8 @@
         android:id="@+id/swipe_target"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="#ff0000"
+        android:dividerHeight="0.5dp"
         android:background="@color/colorPrimary" />
 
 </LinearLayout>
