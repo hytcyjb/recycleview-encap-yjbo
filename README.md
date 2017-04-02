@@ -6,3 +6,4 @@
 效果图如下：
 <img src="http://img.blog.csdn.net/20150227092839014
 " width="400" height="300"/>
+<p><img src="http://img.blog.csdn.net/20150227092839014" width="400" height="300"></p>
