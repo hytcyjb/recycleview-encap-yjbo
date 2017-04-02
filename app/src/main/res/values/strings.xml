@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">对recycleview的adapter进行封装</string>
+    <string name="app_name">recycAdapt封装</string>
     <array name="main_activity">
         <item>对listview标签进行封装</item>
         <item>对GridView标签进行封装</item>

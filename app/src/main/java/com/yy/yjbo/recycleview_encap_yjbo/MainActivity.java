@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycle_onekind);
         initView();
         initData();
+        setTitle("对recycleview的adapter进行封装");
     }
 
     protected void initView() {
