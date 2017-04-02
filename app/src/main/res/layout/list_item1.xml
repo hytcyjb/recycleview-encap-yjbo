@@ -12,6 +12,7 @@
     android:orientation="horizontal"
     android:layout_gravity="center"
     android:gravity="right"
+    android:id="@+id/liner_item"
     android:padding="15dp">
     <TextView
         android:id="@+id/tv1"

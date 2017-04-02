@@ -2,6 +2,7 @@ package com.yy.yjbo.recycleview_encap_yjbo;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Toast;
 
 import com.yy.yjbo.recycleview_encap_yjbo.test.gridview.main.GirdViewActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.ListActivity;
@@ -56,6 +57,12 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
                         }else if (position == 4){
                             commonutil.skipAct(mcontext, AddHeadFootActivity.class,item.getTv1());
                         }
+                    }
+                })
+                .setOnClickListener(R.id.liner_item, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mcontext,"点击了布局==="+position,Toast.LENGTH_SHORT).show();
                     }
                 });
     }

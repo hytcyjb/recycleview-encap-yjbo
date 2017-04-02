@@ -33,13 +33,13 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
     }
 
     @Override
-    protected void bindData(RecyclerViewHolder holder, final Item item, int position) {
+    protected void bindData(RecyclerViewHolder holder, final Item item, final int position) {
         holder.setText(R.id.tv1, item.getTv1())
                 .setImageResource(R.id.img, item.getRes())
                 .setOnClickListener(R.id.img, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext, item.getTv1(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, item.getTv1()+"----"+position, Toast.LENGTH_SHORT).show();
                     }
                 });
     }
