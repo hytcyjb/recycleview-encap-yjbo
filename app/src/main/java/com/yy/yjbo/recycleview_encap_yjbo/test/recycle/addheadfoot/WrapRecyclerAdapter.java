@@ -4,6 +4,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.yy.yjbo.recycleview_encap_yjbo.R;
+
+/**
+ * 添加头尾布局的思路很好，也是和添加主体的思路一致，也是将布局放到SparseArray中;同时也加入了更新头部的方法：
+ * @author yjbo
+ * @time 2017/4/2 22:40
+ */
 
 public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -110,6 +119,18 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
         notifyDataSetChanged();
     }
+    //更新头部，底部 2017年4月2日22:47:14 yjbo
+    public void updateHeaderView(View view,String abstitle) {
+        //没有包含头部
+        int position = mHeaderViews.indexOfValue(view);
+        System.out.println("点击事件=="+position+"==="+abstitle);
+        if (position >= 0) {
+            //集合有就更新，没有则不能更新
+            TextView tv1 = (TextView) view.findViewById(R.id.tv1);
+            tv1.setText(abstitle);
+        }
+        notifyDataSetChanged();
+    }
 
     public void addFooterView(View view) {
         //没有包含头部
@@ -117,6 +138,16 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (position < 0) {
             //集合没有就添加，不能重复添加
             mFooterViews.put(BASE_Footer_KEY++, view);
+        }
+        notifyDataSetChanged();
+    }
+    public void updateFooterView(View view,String abstitle) {
+        //没有包含头部
+        int position = mFooterViews.indexOfValue(view);
+        if (position >= 0) {
+            //集合有就更新，没有则不能更新
+            TextView tv1 = (TextView) view.findViewById(R.id.tv1);
+            tv1.setText(abstitle);
         }
         notifyDataSetChanged();
     }

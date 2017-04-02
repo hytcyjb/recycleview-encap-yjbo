@@ -41,6 +41,12 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
                     public void onClick(View v) {
                         Toast.makeText(mContext, item.getTv1()+"----"+position, Toast.LENGTH_SHORT).show();
                     }
+                })
+                .setOnClickListener(R.id.tv1, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(mContext, item.getTv1()+"--00--"+position, Toast.LENGTH_SHORT).show();
+                    }
                 });
     }
 }
