@@ -3,7 +3,7 @@ package com.yy.yjbo.recycleview_encap_yjbo.test.util;
 /** 
  * 多种类目状态时用到的
  * @author yjbo
- * @time 2017/4/1 23:49
+ * @time 2017/4/1 23:50
  */
 
 public interface MutipleTypeSupport<T> {

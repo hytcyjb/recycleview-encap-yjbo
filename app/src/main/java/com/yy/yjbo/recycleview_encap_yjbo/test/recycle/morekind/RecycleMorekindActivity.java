@@ -3,6 +3,7 @@ package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +23,7 @@ import java.util.List;
  * @author yjbo
  * @time 2017/4/1 23:12
  */
-public class RecycleMorekindActivity extends Activity {
+public class RecycleMorekindActivity extends AppCompatActivity {
 //    private SimpleAdapter mAdapter;
     private ArrayList<Item> Datas;
     private MutipleAdaper mMutipleAdaper;
@@ -33,6 +34,7 @@ public class RecycleMorekindActivity extends Activity {
         setContentView(R.layout.activity_recycle_onekind);
         initView();
         initData();
+        setTitle(""+this.getIntent().getStringExtra("title"));
     }
     protected void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target_onekind);

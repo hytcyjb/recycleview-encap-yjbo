@@ -1,8 +1,11 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.list.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
@@ -16,7 +19,7 @@ import java.util.ArrayList;
  * @time 2017/4/1 21:05
  */
 
-public class AdapterActivity extends Activity {
+public class ListActivity extends AppCompatActivity {
 
     private SimpleAdapter mAdapter;
     private ListView mListView;
@@ -28,6 +31,7 @@ public class AdapterActivity extends Activity {
         setContentView(R.layout.activity_list);
         initView();
         initData();
+        setTitle(""+this.getIntent().getStringExtra("title"));
     }
 
 
@@ -45,6 +49,7 @@ public class AdapterActivity extends Activity {
 
     protected void initView() {
         mListView = (ListView) findViewById(R.id.swipe_target);
+
     }
 
 

@@ -10,6 +10,9 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="horizontal"
+    android:background="#555555"
+    android:layout_gravity="center"
+    android:gravity="center"
     android:padding="15dp">
 
     <ImageView
@@ -21,18 +24,22 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:text="菜单" />
 
         <TextView
             android:id="@+id/tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
             android:text="菜单" />
     </LinearLayout>
 

@@ -2,6 +2,7 @@ package com.yy.yjbo.recycleview_encap_yjbo.test.gridview.main;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  * @time 2017/4/1 21:11
  */
 
-public class GirdViewActivity extends Activity {
+public class GirdViewActivity extends AppCompatActivity {
 
     private GridViewAdapter mAdapter;
     private GridView mListView;
@@ -29,11 +30,13 @@ public class GirdViewActivity extends Activity {
         setContentView(R.layout.activity_gridview);
         initView();
         initData();
+        setTitle(""+this.getIntent().getStringExtra("title"));
     }
 
 
     //添加数据
     protected void initData() {
+
         Datas = new ArrayList<>();
         for (int i = 1; i <= 30; i++) {
             Item item = new Item(R.mipmap.ic_launcher_round, " get 新技能" + i, "拣到漂亮妹子 " + i + " 枚，在大街上");

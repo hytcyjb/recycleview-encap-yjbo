@@ -29,19 +29,11 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
 
     }
 
-    //    @Override
-//    public int getLayoutId(Item item) {
-//        if (item.getType() == 1){//该处1是通过 item 传过来的
-//            return R.layout.list_item;
-//        }else {
-//            return R.layout.list_item1;
-//        }
-//    }
     @Override
     protected void bindData(RecyclerViewHolder holder, final Item item, int position) {
         holder.setText(R.id.tv1, item.getTv1())
                 .setImageResource(R.id.img, item.getRes())
-                .setOnClickListener(R.id.tv1, new View.OnClickListener() {
+                .setOnClickListener(R.id.img, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(mContext, item.getTv1(), Toast.LENGTH_SHORT).show();
