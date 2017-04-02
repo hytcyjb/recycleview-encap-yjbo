@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecyclerViewHolder;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.MutipleTypeSupport;
 
 import java.util.List;

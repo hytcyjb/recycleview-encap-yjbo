@@ -1,4 +1,4 @@
-package com.yy.yjbo.recycleview_encap_yjbo.test.util;
+package com.yy.yjbo.recycleview_encap_yjbo.test.util.listutil;
 
 import android.content.Context;
 import android.util.SparseArray;

@@ -9,7 +9,7 @@ import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot.AddHeadFootAc
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecycleMorekindActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecyclerMoreKindViewAdapter;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecycleOnekindActivity;
-import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecyclerViewHolder;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.MutipleTypeSupport;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.commonutil;

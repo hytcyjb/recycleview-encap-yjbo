@@ -1,4 +1,4 @@
-package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind;
+package com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;

@@ -1,6 +1,5 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;

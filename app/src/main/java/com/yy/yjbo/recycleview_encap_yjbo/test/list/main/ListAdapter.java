@@ -5,15 +5,15 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
-import com.yy.yjbo.recycleview_encap_yjbo.test.util.BaseAdapter;
-import com.yy.yjbo.recycleview_encap_yjbo.test.util.BaseViewHolder;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.listutil.BaseAdapter;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.listutil.BaseViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.List;
 
-public class SimpleAdapter extends BaseAdapter<Item> {
+public class ListAdapter extends BaseAdapter<Item> {
 
-    public SimpleAdapter(List datas, Context context) {
+    public ListAdapter(List datas, Context context) {
         super(datas, context, R.layout.list_item);
     }
 

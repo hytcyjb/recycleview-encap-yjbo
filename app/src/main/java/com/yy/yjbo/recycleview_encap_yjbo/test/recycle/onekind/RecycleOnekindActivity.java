@@ -1,6 +1,5 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -19,9 +18,7 @@ import java.util.ArrayList;
  * @author yjbo
  * @time 2017/4/1 23:10
  */
-
 public class RecycleOnekindActivity extends AppCompatActivity {
-    //    private SimpleAdapter mAdapter;
     private ArrayList<Item> Datas;
     private RecyclerAdapterDemo mAdapterDemo;
     private RecyclerView mRecyclerView;

@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.yy.yjbo.recycleview_encap_yjbo.R;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.List;

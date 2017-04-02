@@ -1,20 +1,15 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
-import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecyclerAdapterDemo;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 参考：http://www.cniao5.com/forum/thread/f5906bb6122f11e7b98900163e0230fa
@@ -24,7 +19,6 @@ import java.util.List;
  * @time 2017/4/1 23:12
  */
 public class RecycleMorekindActivity extends AppCompatActivity {
-//    private SimpleAdapter mAdapter;
     private ArrayList<Item> Datas;
     private MutipleAdaper mMutipleAdaper;
     private RecyclerView mRecyclerView;

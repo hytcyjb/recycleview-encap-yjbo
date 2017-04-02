@@ -1,11 +1,8 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.list.main;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
@@ -18,10 +15,9 @@ import java.util.ArrayList;
  * @author yjbo
  * @time 2017/4/1 21:05
  */
-
 public class ListActivity extends AppCompatActivity {
 
-    private SimpleAdapter mAdapter;
+    private ListAdapter mAdapter;
     private ListView mListView;
     private ArrayList<Item> Datas;
 
@@ -43,7 +39,7 @@ public class ListActivity extends AppCompatActivity {
             Datas.add(item);
         }
 
-        mAdapter = new SimpleAdapter(Datas, this);
+        mAdapter = new ListAdapter(Datas, this);
         mListView.setAdapter(mAdapter);
     }
 

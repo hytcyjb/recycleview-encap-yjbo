@@ -5,13 +5,16 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
-import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecyclerViewAdapter;
-import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecyclerViewHolder;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.MutipleTypeSupport;
 
 import java.util.List;
-
+/**
+ * 多样式的item使用的adapter
+ * @author yjbo
+ * @time 2017/4/2 15:23
+ */
 public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
 
     public MutipleAdaper(Context context, List<Item> datas) {
