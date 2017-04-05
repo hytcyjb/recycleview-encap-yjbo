@@ -6,7 +6,6 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +19,13 @@ import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 import java.util.ArrayList;
 
 /**
- * recycle添加头文件和尾部文件---垂直布局（非网格布局）
+ * recycle添加头文件和尾部文件---网格布局
  *
  * @author yjbo
  * @time 2017/4/2 10:51
  */
 
-public class AddHeadFootActivity extends AppCompatActivity {
+public class AddHeadFootGirdActivity extends AppCompatActivity {
     private ArrayList<Item> Datas;
     private MutipleAdaper mMutipleAdaper;
     private WrapRecyclerAdapter mWrapRecyclerAdapter;
@@ -69,17 +68,17 @@ public class AddHeadFootActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 countTopClick++;
-                System.out.println("点击事件");
+//                System.out.println("点击事件");
                 mWrapRecyclerAdapter.updateHeaderView(headerView, "更新头部,第" + countTopClick + "次！！！！");
                 if (countTopClick == 10){
-                    Toast.makeText(AddHeadFootActivity.this,"再点击一次就去除头部！！！！",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddHeadFootGirdActivity.this,"再点击一次就去除头部！！！！",Toast.LENGTH_SHORT).show();
                     mWrapRecyclerAdapter.updateHeaderView(headerView, "再点击一次就去除头部！！！！");
                 }else if (countTopClick == 11){
 
                     countTopClick = 0;
 
                     mWrapRecyclerAdapter.removeHeaderView(headerView);
-                    Toast.makeText(AddHeadFootActivity.this,"5秒之后就恢复头文件",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddHeadFootGirdActivity.this,"5秒之后就恢复头文件",Toast.LENGTH_SHORT).show();
 
                     mHandler.postDelayed(new Runnable() {
                         @Override
@@ -106,7 +105,8 @@ public class AddHeadFootActivity extends AppCompatActivity {
     protected void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target_onekind);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
     Handler mHandler = new Handler(new Handler.Callback() {

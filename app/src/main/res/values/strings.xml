@@ -5,6 +5,7 @@
         <item>对GridView标签进行封装</item>
         <item>recycleview的单种类型的界面</item>
         <item>recycleview的多种类型的界面</item>
-        <item>recycle添加头文件和尾部文件</item>
+        <item>recycle添加头文件和尾部文件(非网格布局)</item>
+        <item>recycle添加头文件和尾部文件(网格布局)</item>
     </array>
 </resources>

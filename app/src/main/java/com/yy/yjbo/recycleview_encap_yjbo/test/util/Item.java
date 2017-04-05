@@ -21,6 +21,12 @@ public class Item {
         this.tv1 = tv1;
         this.type = type;
     }
+    public Item(int res, String tv1, String tv2,int type) {
+        this.res = res;
+        this.tv1 = tv1;
+        this.type = type;
+        this.tv2 = tv2;
+    }
     public int getType() {
         return type;
     }

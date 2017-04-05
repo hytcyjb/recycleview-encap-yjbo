@@ -1,11 +1,14 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yy.yjbo.recycleview_encap_yjbo.R;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.MutipleTypeSupport;
 
@@ -17,6 +20,7 @@ public abstract class RecyclerMoreKindViewAdapter<T> extends RecyclerView.Adapte
     protected List<T> mDatas;//数据源
     protected Context mContext;//上下文
     private LayoutInflater mInflater;
+
 
     //多种类型的界面中使用的
     private MutipleTypeSupport<T> mMutipleTypeSupport;
@@ -37,26 +41,29 @@ public abstract class RecyclerMoreKindViewAdapter<T> extends RecyclerView.Adapte
     //调用 onCreateViewHolder() 方法之前调用 getItemViewType()
     @Override
     public int getItemViewType(int position) {
-        if (mMutipleTypeSupport != null){
+        if (mMutipleTypeSupport != null) {
             return mMutipleTypeSupport.getLayoutId(mDatas.get(position));
         }
         return super.getItemViewType(position);
     }
 
+
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //判断是否需要多布局
-        if (mMutipleTypeSupport != null){
+        if (mMutipleTypeSupport != null) {
             mLayoutId = viewType;
         }
 
-        View itemView = mInflater.inflate(mLayoutId,parent,false);
+        View itemView = mInflater.inflate(mLayoutId, parent, false);
         return new RecyclerViewHolder(itemView);
     }
+
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
         bindData(holder, mDatas.get(position), position);
     }
+
 
     /**
      * 把必要参数传进去，让每个 Adapter 去设置具体值

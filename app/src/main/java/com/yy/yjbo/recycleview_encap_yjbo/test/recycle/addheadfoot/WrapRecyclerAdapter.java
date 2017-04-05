@@ -1,15 +1,19 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot;
 
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 
 /**
  * 添加头尾布局的思路很好，也是和添加主体的思路一致，也是将布局放到SparseArray中;同时也加入了更新头部的方法：
+ *
  * @author yjbo
  * @time 2017/4/2 22:40
  */
@@ -32,6 +36,43 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         mHeaderViews = new SparseArray<>();
         mFooterViews = new SparseArray<>();
     }
+    /**
+     * onAttachedToRecyclerView
+     *
+     *  添加这个方法是为了在网格布局中能够任意在某个位置添加头部布局或者尾部布局占满一横行
+     * @author yjbo  @time 2017/4/5 13:55
+     */
+    @Override
+    public void onAttachedToRecyclerView(final RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+        if (manager instanceof GridLayoutManager) {
+            final GridLayoutManager gridManager = ((GridLayoutManager) manager);
+            gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (mHeaderViews.size() > position) {
+                        return gridManager.getSpanCount();
+                    } else if (mFooterViews.size() >= recyclerView.getAdapter().getItemCount() - position) {
+                        return gridManager.getSpanCount();
+                    }
+                    return 1;
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
+        if (lp != null
+                && lp instanceof StaggeredGridLayoutManager.LayoutParams
+                && holder.getLayoutPosition() == 0) {
+            StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
+            p.setFullSpan(true);
+        }
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -39,14 +80,14 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         //区分头部和底部，根据ViewType来
         //ViewType可能有三部分  头部 底部 Adapter
 
-          //判断是否为头部
+        //判断是否为头部
         if (isHeaderViewType(viewType)) {
             View headerView = mHeaderViews.get(viewType);
             //header
             return createHeaderOrFooterViewHolder(headerView);
         }
 
-          //判断是否为底部
+        //判断是否为底部
         if (isFooterViewType(viewType)) {
             View footerView = mFooterViews.get(viewType);
             //footer
@@ -60,11 +101,13 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     /**
      * 创建头部和底部ViewHolder
+     *
      * @param view
      * @return
      */
     private RecyclerView.ViewHolder createHeaderOrFooterViewHolder(View view) {
-        return new RecyclerView.ViewHolder(view) {};
+        return new RecyclerView.ViewHolder(view) {
+        };
     }
 
     @Override
@@ -119,11 +162,12 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
         notifyDataSetChanged();
     }
+
     //更新头部，底部 2017年4月2日22:47:14 yjbo
-    public void updateHeaderView(View view,String abstitle) {
+    public void updateHeaderView(View view, String abstitle) {
         //没有包含头部
         int position = mHeaderViews.indexOfValue(view);
-        System.out.println("点击事件=="+position+"==="+abstitle);
+//        System.out.println("点击事件=="+position+"==="+abstitle);
         if (position >= 0) {
             //集合有就更新，没有则不能更新
             TextView tv1 = (TextView) view.findViewById(R.id.tv1);
@@ -141,7 +185,8 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
         notifyDataSetChanged();
     }
-    public void updateFooterView(View view,String abstitle) {
+
+    public void updateFooterView(View view, String abstitle) {
         //没有包含头部
         int position = mFooterViews.indexOfValue(view);
         if (position >= 0) {

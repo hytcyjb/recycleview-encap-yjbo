@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Datas = new ArrayList<>();
         String[] stringArray = getResources().getStringArray(R.array.main_activity);
         for (int i = 0; i < stringArray.length; i++) {
-            Datas.add(new Item(R.mipmap.ic_launcher_round, stringArray[i], 1));
+            Datas.add(new Item(R.mipmap.ic_launcher_round, stringArray[i], "点击图标可以跳转",1));
         }
         mMutipleAdaper = new MainAdapter(this, Datas);
         mRecyclerView.setAdapter(mMutipleAdaper);

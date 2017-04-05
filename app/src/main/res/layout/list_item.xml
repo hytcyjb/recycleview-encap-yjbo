@@ -8,12 +8,12 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="100dp"
     android:orientation="horizontal"
-    android:background="#555555"
+    android:background="#d0d0d0"
     android:layout_gravity="center"
     android:id="@+id/liner_item"
-    android:gravity="center"
+    android:gravity="left"
     android:padding="15dp">
 
     <ImageView
@@ -26,21 +26,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="18dp"
+            android:textColor="#ff0000"
             android:text="菜单" />
 
         <TextView
             android:id="@+id/tv2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="15dp"
+            android:textColor="#000000"
             android:text="菜单" />
     </LinearLayout>
 
