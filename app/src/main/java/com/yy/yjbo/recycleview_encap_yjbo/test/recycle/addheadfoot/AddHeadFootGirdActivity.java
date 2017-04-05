@@ -32,6 +32,7 @@ public class AddHeadFootGirdActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private int countTopClick = 0;
     private int countButtomClick = 0;
+    private View headerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +54,41 @@ public class AddHeadFootGirdActivity extends AppCompatActivity {
         }
 
         mMutipleAdaper = new MutipleAdaper(this, Datas);
+        mRecyclerView.setAdapter(mMutipleAdaper);
+
+        Toast.makeText(AddHeadFootGirdActivity.this, "5秒之后就添加头,尾文件", Toast.LENGTH_SHORT).show();
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initTopBottom();
+                Toast.makeText(AddHeadFootGirdActivity.this, "5秒之后就更新头文件", Toast.LENGTH_SHORT).show();
+                updateHRun();
+            }
+        }, 5 * 1000);
+
+    }
+    /**
+     *  更新头文件内元素
+     * @author yjbo  @time 2017/4/5 14:09
+     */
+    private void updateHRun() {
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (headerView != null) {
+                    mWrapRecyclerAdapter.updateHeaderView(headerView, "头文件更新了一下啦！！！！");
+                }
+            }
+        }, 5 * 1000);
+
+    }
+
+    private void initTopBottom() {
         mWrapRecyclerAdapter = new WrapRecyclerAdapter(mMutipleAdaper);
         mRecyclerView.setAdapter(mWrapRecyclerAdapter);
 
-        final View headerView = LayoutInflater.from(this).inflate(R.layout.layout_header, mRecyclerView, false);
+        headerView = LayoutInflater.from(this).inflate(R.layout.layout_header, mRecyclerView, false);
         final View footView = LayoutInflater.from(this).inflate(R.layout.layout_footer, mRecyclerView, false);
         mWrapRecyclerAdapter.addHeaderView(headerView);
         mWrapRecyclerAdapter.addFooterView(footView);
@@ -70,15 +102,15 @@ public class AddHeadFootGirdActivity extends AppCompatActivity {
                 countTopClick++;
 //                System.out.println("点击事件");
                 mWrapRecyclerAdapter.updateHeaderView(headerView, "更新头部,第" + countTopClick + "次！！！！");
-                if (countTopClick == 10){
-                    Toast.makeText(AddHeadFootGirdActivity.this,"再点击一次就去除头部！！！！",Toast.LENGTH_SHORT).show();
+                if (countTopClick == 10) {
+                    Toast.makeText(AddHeadFootGirdActivity.this, "再点击一次就去除头部！！！！", Toast.LENGTH_SHORT).show();
                     mWrapRecyclerAdapter.updateHeaderView(headerView, "再点击一次就去除头部！！！！");
-                }else if (countTopClick == 11){
+                } else if (countTopClick == 11) {
 
                     countTopClick = 0;
 
                     mWrapRecyclerAdapter.removeHeaderView(headerView);
-                    Toast.makeText(AddHeadFootGirdActivity.this,"5秒之后就恢复头文件",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddHeadFootGirdActivity.this, "5秒之后就恢复头文件", Toast.LENGTH_SHORT).show();
 
                     mHandler.postDelayed(new Runnable() {
                         @Override
@@ -86,7 +118,7 @@ public class AddHeadFootGirdActivity extends AppCompatActivity {
                             mWrapRecyclerAdapter.addHeaderView(headerView);
                             mWrapRecyclerAdapter.updateHeaderView(headerView, "点击可以更新头部！！！！");
                         }
-                    },5*1000);
+                    }, 5 * 1000);
 
                 }
             }
@@ -99,7 +131,6 @@ public class AddHeadFootGirdActivity extends AppCompatActivity {
                 mWrapRecyclerAdapter.updateFooterView(footView, "更新底部,第" + countButtomClick + "次！！！！");
             }
         });
-
     }
 
     protected void initView() {
