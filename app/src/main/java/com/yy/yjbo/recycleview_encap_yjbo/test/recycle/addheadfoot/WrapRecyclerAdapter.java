@@ -51,6 +51,11 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
+//                    if (isFooterViewType(getItemViewType(position)) ||
+//                            isFooterViewType(getItemViewType(position))){
+//                        return gridManager.getSpanCount();
+//                    }
+                    //这样有点繁琐，这里面有点值比较死，头部文件不能放中间
                     if (mHeaderViews.size() > position) {
                         return gridManager.getSpanCount();
                     } else if (mFooterViews.size() >= recyclerView.getAdapter().getItemCount() - position) {
