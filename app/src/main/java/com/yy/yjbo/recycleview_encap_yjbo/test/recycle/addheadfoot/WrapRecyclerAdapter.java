@@ -56,11 +56,27 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 //                        return gridManager.getSpanCount();
 //                    }
                     //这样有点繁琐，这里面有点值比较死，头部文件不能放中间
-                    if (mHeaderViews.size() > position) {
-                        return gridManager.getSpanCount();
-                    } else if (mFooterViews.size() >= recyclerView.getAdapter().getItemCount() - position) {
+//                    if (mHeaderViews.size() > position) {
+//                        return gridManager.getSpanCount();
+//                    } else if (mFooterViews.size() >= recyclerView.getAdapter().getItemCount() - position) {
+//                        return gridManager.getSpanCount();
+//                    }
+//                    return 1;
+                    //header
+                    if (position == 0 || position == 19) {
+//                    if (isHeaderPosition(position)) {
                         return gridManager.getSpanCount();
                     }
+
+                    // footer
+                    if (position == 7 || position == 15 || position == 30) {
+//                    if (isFooterPosition(position)) {
+                        position = position - mHeaderViews.size() - mAdapter.getItemCount();
+                        return gridManager.getSpanCount();
+                    }
+
+                    //adapter
+                    position = position - mHeaderViews.size();
                     return 1;
                 }
             });
@@ -161,10 +177,10 @@ public class WrapRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void addHeaderView(View view) {
         //没有包含头部
         int position = mHeaderViews.indexOfValue(view);
-        if (position < 0) {
+//        if (position < 0) {
             //集合没有就添加，不能重复添加
             mHeaderViews.put(BASE_HEADER_KEY++, view);
-        }
+//        }
         notifyDataSetChanged();
     }
 
