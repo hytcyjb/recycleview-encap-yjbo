@@ -8,6 +8,7 @@ import com.yy.yjbo.recycleview_encap_yjbo.test.gridview.main.GirdViewActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.ListActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot.AddHeadFootActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfootgird.AddHeadFootGirdActivity;
+import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addmuiltitem.AddMuiltItemActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecycleMorekindActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecyclerMoreKindViewAdapter;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecycleOnekindActivity;
@@ -59,6 +60,8 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
                             commonutil.skipAct(mcontext, AddHeadFootActivity.class,item.getTv1());
                         }else if (position == 5){
                             commonutil.skipAct(mcontext, AddHeadFootGirdActivity.class,item.getTv1());
+                        }else if (position == 6){
+                            commonutil.skipAct(mcontext, AddMuiltItemActivity.class,item.getTv1());
                         }
                     }
                 })

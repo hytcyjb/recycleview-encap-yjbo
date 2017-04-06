@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".test.recycle.addheadfootgird.AddHeadFootGirdActivity" >
         </activity>
+        <activity android:name=".test.recycle.addmuiltitem.AddMuiltItemActivity" >
+        </activity>
     </application>
 
 </manifest>
