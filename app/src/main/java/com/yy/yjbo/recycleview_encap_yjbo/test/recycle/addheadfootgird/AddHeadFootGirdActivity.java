@@ -1,4 +1,4 @@
-package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot;
+package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfootgird;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
+import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot.WrapRecyclerAdapter;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.MutipleAdaper;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.DividerGridItemDecorationCopy;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.ArrayList;
@@ -129,13 +132,28 @@ public class AddHeadFootGirdActivity extends AppCompatActivity {
             public void onClick(View view) {
                 countButtomClick++;
                 mWrapRecyclerAdapter.updateFooterView(footView, "更新底部,第" + countButtomClick + "次！！！！");
+                if (countButtomClick == 5){
+                    Toast.makeText(AddHeadFootGirdActivity.this, "再点击一次就添加数据", Toast.LENGTH_SHORT).show();
+                }else if (countButtomClick == 6){//显示下一页的数据
+                    countButtomClick = 0;
+                    int dataAgoL = mMutipleAdaper.getItemCount();
+                    Datas = new ArrayList<>();
+                    for (int i = dataAgoL + 1; i <= 30+dataAgoL; i++) {
+                        if (i % 2 == 0) {
+                            Datas.add(new Item(R.mipmap.ic_launcher_round, "我 get 新技能 " + i, 0));
+                        } else {
+                            Datas.add(new Item(R.mipmap.ic_launcher_round, "你 get 新技能 " + i, 1));
+                        }
+                    }
+                    mMutipleAdaper.addMore(Datas,1);
+                }
             }
         });
     }
 
     protected void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target_onekind);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerGridItemDecorationCopy(this,1,1));
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }

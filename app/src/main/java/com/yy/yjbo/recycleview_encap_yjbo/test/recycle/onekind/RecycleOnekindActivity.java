@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.DividerGridItemDecorationCopy;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class RecycleOnekindActivity extends AppCompatActivity {
     protected void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target_onekind);
         //添加分割线
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerGridItemDecorationCopy(this));
 //        //添加布局管理器--列表
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         //添加布局管理器--网格

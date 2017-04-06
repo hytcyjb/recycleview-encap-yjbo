@@ -37,6 +37,14 @@ public abstract class RecyclerMoreKindViewAdapter<T> extends RecyclerView.Adapte
         this.mDatas = datas;
         this.mInflater = LayoutInflater.from(mContext);
     }
+    //上拉加载更多1-0
+    public void RecyclerAddMoreKindViewAdapter(List<T> datas, MutipleTypeSupport typeSupport,int add) {
+        this.mMutipleTypeSupport = typeSupport;
+        this.mLayoutId = -1;
+        this.mDatas.addAll(datas);
+
+        notifyDataSetChanged();
+    }
 
     //调用 onCreateViewHolder() 方法之前调用 getItemViewType()
     @Override

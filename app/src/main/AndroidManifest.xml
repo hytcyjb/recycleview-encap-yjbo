@@ -31,7 +31,7 @@
         </activity>
         <activity android:name=".test.recycle.addheadfoot.AddHeadFootActivity" >
         </activity>
-        <activity android:name=".test.recycle.addheadfoot.AddHeadFootGirdActivity" >
+        <activity android:name=".test.recycle.addheadfootgird.AddHeadFootGirdActivity" >
         </activity>
     </application>
 

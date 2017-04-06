@@ -31,6 +31,24 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
         });
 
     }
+    /**
+     * 加载更多的时候用到的
+     * @author yjbo  @time 2017/4/6 11:50
+     */
+    public void addMore(List<Item> datas,int add) {
+
+        RecyclerAddMoreKindViewAdapter(datas, new MutipleTypeSupport<Item>() {
+            @Override
+            public int getLayoutId(Item item) {
+                if (item.getType() == 1){//该处1是通过 item 传过来的
+                    return R.layout.list_item;
+                }else {
+                    return R.layout.list_item1;
+                }
+            }
+        },1);
+
+    }
 
     @Override
     protected void bindData(RecyclerViewHolder holder, final Item item, final int position) {

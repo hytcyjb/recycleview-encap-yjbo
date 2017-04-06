@@ -7,7 +7,7 @@ import android.widget.Toast;
 import com.yy.yjbo.recycleview_encap_yjbo.test.gridview.main.GirdViewActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.ListActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot.AddHeadFootActivity;
-import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot.AddHeadFootGirdActivity;
+import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfootgird.AddHeadFootGirdActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecycleMorekindActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecyclerMoreKindViewAdapter;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecycleOnekindActivity;

@@ -10,7 +10,6 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="horizontal"
-    android:background="#d0d0d0"
     android:layout_gravity="center"
     android:id="@+id/liner_item"
     android:gravity="left"
