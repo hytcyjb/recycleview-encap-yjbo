@@ -1,6 +1,8 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -53,6 +55,18 @@ public class RecycleMorekindActivity extends AppCompatActivity {
         }
         mMutipleAdaper = new MutipleAdaper(this,Datas);
         mRecyclerView.setAdapter(mMutipleAdaper);
-    }
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mMutipleAdaper.refreshOne(Datas, 2);
 
+            }
+        },1000);
+    }
+    Handler mHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message message) {
+            return false;
+        }
+    });
 }

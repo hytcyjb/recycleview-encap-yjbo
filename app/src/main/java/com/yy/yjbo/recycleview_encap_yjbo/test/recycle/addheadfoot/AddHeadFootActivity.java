@@ -72,7 +72,9 @@ public class AddHeadFootActivity extends AppCompatActivity {
                 countTopClick++;
                 System.out.println("点击事件");
                 mWrapRecyclerAdapter.updateHeaderView(headerView, "更新头部,第" + countTopClick + "次！！！！");
-                if (countTopClick == 10){
+                if (countTopClick == 5) {
+                    mMutipleAdaper.refreshOne(Datas, 4);
+                }else if (countTopClick == 10){
                     Toast.makeText(AddHeadFootActivity.this,"再点击一次就去除头部！！！！",Toast.LENGTH_SHORT).show();
                     mWrapRecyclerAdapter.updateHeaderView(headerView, "再点击一次就去除头部！！！！");
                 }else if (countTopClick == 11){
@@ -116,6 +118,21 @@ public class AddHeadFootActivity extends AppCompatActivity {
                 }
             }
         });
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mMutipleAdaper.refreshOne(Datas, 1);
+//                mMutipleAdaper.refreshOne(Datas, 2);
+//                tv1.performClick();
+//                mRecyclerView.getAdapter().notifyItemChanged(2);
+//                mRecyclerView.getAdapter().notifyItemChanged(3);
+                //这里很复杂，主要了，此处的adapter与上面的adapter不一样
+                mWrapRecyclerAdapter.notifyItemChanged(200);
+                mWrapRecyclerAdapter.notifyItemChanged(2);
+//                mWrapRecyclerAdapter.notifyItemChanged(3);
+            }
+        },2000);
 
     }
 

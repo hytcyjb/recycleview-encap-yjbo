@@ -69,7 +69,7 @@ public abstract class RecyclerMoreKindViewAdapter<T> extends RecyclerView.Adapte
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
-        bindData(holder, mDatas.get(position), position);
+        bindData(holder, mDatas.get(position), position,mDatas);
     }
 
 
@@ -80,7 +80,7 @@ public abstract class RecyclerMoreKindViewAdapter<T> extends RecyclerView.Adapte
      * @param t        数据
      * @param position 当前位置
      */
-    protected abstract void bindData(RecyclerViewHolder holder, T t, int position);
+    protected abstract void bindData(RecyclerViewHolder holder, T t, int position,List<T> mDatas);
 
     @Override
     public int getItemCount() {

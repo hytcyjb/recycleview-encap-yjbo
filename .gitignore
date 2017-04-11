@@ -21,3 +21,4 @@ local.properties
 #settings.gradle
 yjboRatingBar.iml
 app.iml
+app/libs/

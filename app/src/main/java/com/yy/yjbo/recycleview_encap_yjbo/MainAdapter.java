@@ -41,7 +41,7 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
     }
 
     @Override
-    protected void bindData(RecyclerViewHolder holder, final Item item, final int position) {
+    protected void bindData(RecyclerViewHolder holder, final Item item, final int position, List<Item> mDatas) {
         holder.setText(R.id.tv1, item.getTv1())
                 .setText(R.id.tv2,item.getTv2())
                 .setImageResource(R.id.img, item.getRes())
@@ -72,4 +72,5 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
                     }
                 });
     }
+
 }

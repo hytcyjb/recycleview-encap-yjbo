@@ -47,24 +47,50 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
                 }
             }
         },1);
-
     }
-
+    public void refreshOne(List<Item> datas,int position) {
+        Item item1 = mDatas.get(position);
+        item1.setTv1("yjbo在操作");
+        mDatas.remove(position);
+        mDatas.add(position,item1);
+        notifyItemChanged(position);
+    }
     @Override
-    protected void bindData(RecyclerViewHolder holder, final Item item, final int position) {
-        holder.setText(R.id.tv1, item.getTv1())
-                .setImageResource(R.id.img, item.getRes())
-                .setOnClickListener(R.id.img, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(mContext, item.getTv1()+"----"+position, Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setOnClickListener(R.id.tv1, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(mContext, item.getTv1()+"--00--"+position, Toast.LENGTH_SHORT).show();
-                    }
-                });
+    protected void bindData(final RecyclerViewHolder holder, final Item item, final int position, final List<Item> mDatas) {
+//        setOnItemClick(holder, item, position);
+        if (item.getTv1().contains("1")) {
+            holder.setText(R.id.tv1, item.getTv1())
+                    .setImageResource(R.id.img, item.getRes())
+                    .setOnClickListener(R.id.img, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(mContext, item.getTv1() + "--11--" + position, Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setOnClickListener(R.id.tv1, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(mContext, item.getTv1() + "--11--" + position, Toast.LENGTH_SHORT).show();
+                        holder.setText(R.id.tv1,item.getTv1()+"yjbo----11");
+                        }
+                    });
+        }else  {
+            holder.setText(R.id.tv1, item.getTv1())
+                    .setImageResource(R.id.img, item.getRes())
+                    .setOnClickListener(R.id.img, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(mContext, item.getTv1() + "----" + position, Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .setOnClickListener(R.id.tv1, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Toast.makeText(mContext, item.getTv1() + "--00--" + position, Toast.LENGTH_SHORT).show();
+                        holder.setText(R.id.tv1,item.getTv1()+"yjbo");
+                        }
+                    });
+        }
     }
+//    protected abstract void setOnItemClick(RecyclerViewHolder holder, Item item, int position);
 }
