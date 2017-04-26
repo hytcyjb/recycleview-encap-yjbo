@@ -12,6 +12,7 @@
     android:orientation="horizontal"
     android:layout_gravity="center"
     android:id="@+id/liner_item"
+    android:background="@color/colorPrimary"
     android:gravity="left"
     android:padding="15dp">
 

@@ -23,6 +23,7 @@ import java.util.List;
  */
 public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
 
+    List<Item> mdatas;
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -32,29 +33,30 @@ public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
             gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
-                    if (getItemViewType(position) == 1){
+                    if (mdatas.get(position).getType() == 10){
                         return gridManager.getSpanCount();
-                    }else  if (getItemViewType(position) == 0){
-                        return gridManager.getSpanCount();
-                    }else {
-                        return 1;
+                    }else  {
+                        return 1 ;
                     }
+//                    if (mdatas.get(position).getType() == 0){//getItemViewType(position)
+//                        return gridManager.getSpanCount();
+//                    }else
                 }
             });
         }
     }
 
-//    @Override
-//    public void onViewAttachedToWindow(RecyclerView.ViewHolder holder) {
-//        super.onViewAttachedToWindow(holder);
-//        ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
-//        if (lp != null
-//                && lp instanceof StaggeredGridLayoutManager.LayoutParams
-//                && holder.getLayoutPosition() == 0) {
-//            StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
-//            p.setFullSpan(true);
-//        }
-//    }
+    @Override
+    public void onViewAttachedToWindow(RecyclerViewHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
+        if (lp != null
+                && lp instanceof StaggeredGridLayoutManager.LayoutParams
+                && holder.getLayoutPosition() == 0) {
+            StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
+            p.setFullSpan(true);
+        }
+    }
 
     public MutipleAddAdaper(Context context, List<Item> datas) {
 
@@ -68,7 +70,7 @@ public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
                 }
             }
         });
-
+        mdatas = datas;
     }
 
     /**
@@ -88,14 +90,18 @@ public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
                 }
             }
         }, 1);
+
+        mdatas = datas;
     }
 
     public void refreshOne(List<Item> datas, int position) {
         Item item1 = mDatas.get(position);
-        item1.setTv1("yjbo在操作");
+        item1.setType(10);
         mDatas.remove(position);
         mDatas.add(position, item1);
         notifyItemChanged(position);
+
+        mdatas = mDatas;
     }
 
     @Override

@@ -47,9 +47,9 @@ public class RecycleMorekindAddActivity extends AppCompatActivity {
     //填充数据
     protected void initData() {
         Datas = new ArrayList<>();
-        for (int i = 1; i <= 30; i++) {
+        for (int i = 0; i <= 30; i++) {
             if (i % 2 == 0) {
-                Datas.add(new Item(R.mipmap.ic_launcher_round,"" + i,0));//根据 Item 类 最后一个参数确定填充数据的不同
+                Datas.add(new Item(R.mipmap.ic_launcher_round,"" + i,i));//根据 Item 类 最后一个参数确定填充数据的不同
             }else {
                 Datas.add(new Item(R.mipmap.ic_launcher_round,"" + i,1));
             }
@@ -59,7 +59,7 @@ public class RecycleMorekindAddActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-//                mMutipleAdaper.refreshOne(Datas, 2);
+                mMutipleAdaper.refreshOne(Datas, 2);
             }
         },1000);
     }
