@@ -22,12 +22,12 @@ public class RecyclerAdapterDemo extends RecyclerViewAdapter<Item> {
     protected void bindData(RecyclerViewHolder holder, final Item item, int position) {
 
         holder.setText(R.id.tv1, item.getTv1())
-                .setOnClickListener(R.id.tv1, new View.OnClickListener() {
+                .setOnClickListener(R.id.liner_item, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(mContext, item.getTv1(), Toast.LENGTH_SHORT).show();
                     }
-                }).setOnLongClickListener(R.id.tv1, new View.OnLongClickListener() {
+                }).setOnLongClickListener(R.id.liner_item, new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 Toast.makeText(mContext, "长按：" + item.getTv1(), Toast.LENGTH_SHORT).show();

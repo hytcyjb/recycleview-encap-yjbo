@@ -10,6 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
+    android:id="@+id/liner_item"
     android:padding="15dp">
 
     <ImageView

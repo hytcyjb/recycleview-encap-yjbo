@@ -8,5 +8,6 @@
         <item>recycle添加头、尾部文件(非网格布局)</item>
         <item>recycle添加头、尾部文件(网格布局)</item>
         <item>recycle添加不同样式item</item>
+        <item>recycle网格页面内部添加一个子页面</item>
     </array>
 </resources>

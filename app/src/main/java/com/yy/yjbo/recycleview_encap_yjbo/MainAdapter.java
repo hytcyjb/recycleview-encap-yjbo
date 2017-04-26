@@ -11,6 +11,7 @@ import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfootgird.AddHeadFo
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addmuiltitem.AddMuiltItemActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecycleMorekindActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecyclerMoreKindViewAdapter;
+import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekindaddkind.RecycleMorekindAddActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.onekind.RecycleOnekindActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
@@ -45,7 +46,7 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
         holder.setText(R.id.tv1, item.getTv1())
                 .setText(R.id.tv2,item.getTv2())
                 .setImageResource(R.id.img, item.getRes())
-                .setOnClickListener(R.id.img, new View.OnClickListener() {
+                .setOnClickListener(R.id.liner_item, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (position == 0){
@@ -62,15 +63,18 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
                             commonutil.skipAct(mcontext, AddHeadFootGirdActivity.class,item.getTv1());
                         }else if (position == 6){
                             commonutil.skipAct(mcontext, AddMuiltItemActivity.class,item.getTv1());
+                        }else if (position == 7) {
+                            commonutil.skipAct(mcontext, RecycleMorekindAddActivity.class,item.getTv1());
                         }
                     }
                 })
-                .setOnClickListener(R.id.liner_item, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(mcontext,"点击了布局==="+position,Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                .setOnClickListener(R.id.liner_item, new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        Toast.makeText(mcontext,"点击了布局==="+position,Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+        ;
     }
 
 }
