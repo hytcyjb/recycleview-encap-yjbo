@@ -33,7 +33,7 @@ public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
             gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
                 @Override
                 public int getSpanSize(int position) {
-                    if (mdatas.get(position).getType() == 10){
+                    if (mdatas.get(position).getType() == 1){
                         return gridManager.getSpanCount();
                     }else  {
                         return 1 ;
@@ -64,9 +64,9 @@ public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
             @Override
             public int getLayoutId(Item item) {
                 if (item.getType() == 1) {//该处1是通过 item 传过来的
-                    return R.layout.list_item;
-                } else {
                     return R.layout.list_item1;
+                } else {
+                    return R.layout.list_item;
                 }
             }
         });
@@ -84,9 +84,9 @@ public class MutipleAddAdaper extends RecyclerMoreKindViewAddAdapter<Item> {
             @Override
             public int getLayoutId(Item item) {
                 if (item.getType() == 1) {//该处1是通过 item 传过来的
-                    return R.layout.list_item;
-                } else {
                     return R.layout.list_item1;
+                } else {
+                    return R.layout.list_item;
                 }
             }
         }, 1);
