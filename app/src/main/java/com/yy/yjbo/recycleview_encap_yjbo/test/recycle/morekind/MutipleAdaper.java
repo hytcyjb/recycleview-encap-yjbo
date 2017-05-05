@@ -1,10 +1,16 @@
 package com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yy.yjbo.recycleview_encap_yjbo.R;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.flowTag.FlowLayout;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.flowTag.TagAdapter;
+import com.yy.yjbo.recycleview_encap_yjbo.test.util.flowTag.TagFlowLayout;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.rcutil.RecyclerViewHolder;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.Item;
 import com.yy.yjbo.recycleview_encap_yjbo.test.util.MutipleTypeSupport;
@@ -24,6 +30,8 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
             public int getLayoutId(Item item) {
                 if (item.getType() == 1){//该处1是通过 item 传过来的
                     return R.layout.list_item;
+                }else if (item.getType() == 2){
+                    return R.layout.list_tagflowlayout;
                 }else {
                     return R.layout.list_item1;
                 }
@@ -42,6 +50,8 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
             public int getLayoutId(Item item) {
                 if (item.getType() == 1){//该处1是通过 item 传过来的
                     return R.layout.list_item;
+                }else if (item.getType() == 2){
+                    return R.layout.list_tagflowlayout;
                 }else {
                     return R.layout.list_item1;
                 }
@@ -58,7 +68,7 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
     @Override
     protected void bindData(final RecyclerViewHolder holder, final Item item, final int position, final List<Item> mDatas) {
 //        setOnItemClick(holder, item, position);
-        if (item.getTv1().contains("1")) {
+        if (item.getType() == 0) {
             holder.setText(R.id.tv1, item.getTv1())
                     .setImageResource(R.id.img, item.getRes())
                     .setOnClickListener(R.id.img, new View.OnClickListener() {
@@ -74,6 +84,27 @@ public class MutipleAdaper extends RecyclerMoreKindViewAdapter<Item> {
                         holder.setText(R.id.tv1,item.getTv1()+"yjbo----11");
                         }
                     });
+        }else  if (item.getType() == 2)  {
+            final TagFlowLayout mFlowLayout = holder.getView(R.id.id_flowlayout);
+            String[] array = mContext.getResources().getStringArray(R.array.tag_flow);
+            final LayoutInflater mInflater;
+            mInflater = LayoutInflater.from(mContext);
+            mFlowLayout.setAdapter(new TagAdapter<String>(array) {
+                @Override
+                public View getView(FlowLayout parent, int position, String s) {
+                    TextView tv = (TextView) mInflater.inflate(R.layout.layout_tag_flow,
+                            mFlowLayout, false);
+                    tv.setText(s);
+                    return tv;
+                }
+            });
+            mFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
+                @Override
+                public boolean onTagClick(View view, int position, FlowLayout parent) {
+                    Toast.makeText(mContext,"你点击了第"+position+"个",Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            });
         }else  {
             holder.setText(R.id.tv1, item.getTv1())
                     .setImageResource(R.id.img, item.getRes())

@@ -142,47 +142,6 @@ public class RecycleMorekindAddActivity extends AppCompatActivity {
                         }
                     }
                 }
-//            @Override
-//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//
-//                //取得当前屏幕可见数据的第一个值
-//                int firstVisibleItem = gridLayoutManager.findFirstVisibleItemPosition();
-//
-//                //取得当前屏幕可见数据的第一个值的类别值
-//                int section = Datas.get(firstVisibleItem).getType();
-//
-//                //取得当前屏幕可见数据的第一个值的类别值在类别顺序中的下一个类别值
-//                int nextSecPosition = getLastIndex(section);
-//
-//                if (firstVisibleItem != lastFirstVisibleItem) {
-//                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) titleLayout.getLayoutParams();
-//                    params.topMargin = 0;
-//                    titleLayout.setLayoutParams(params);
-//                    txt_Title.setText(Datas.get(firstVisibleItem).getTv1() + "=====");
-//                }
-//
-//
-//                if (nextSecPosition == firstVisibleItem + 1) {
-//                    View childView = recyclerView.getChildAt(0);
-//                    if (childView != null) {
-//
-//                        int titleHeight = titleLayout.getHeight();
-//                        int bottom = childView.getBottom();
-//                        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) titleLayout
-//                                .getLayoutParams();
-//                        if (bottom < titleHeight) {
-//                            float pushedDistance = bottom - titleHeight;
-//                            params.topMargin = (int) pushedDistance;
-//                            titleLayout.setLayoutParams(params);
-//                        } else {
-//                            if (params.topMargin != 0) {
-//                                params.topMargin = 0;
-//                                titleLayout.setLayoutParams(params);
-//                            }
-//                        }
-//                    }
-//                }
                 lastFirstVisibleItem = firstVisibleItem;
             }
         });
@@ -205,18 +164,6 @@ public class RecycleMorekindAddActivity extends AppCompatActivity {
      * @return 下一个类别的第一条记录的排序号
      */
     private int getLastIndex(int i) {
-//        switch (i) {//1-5 ：是第一节点下的数据的长度值（7）-（减去）【网格的列数（3） or 列表数（1）】+（加上）1
-//            case 0:
-//                return 0;
-//            case 1:
-//                return 5;
-//            case 2:
-//                return 12;
-//            case 3:
-//                return 25;
-//            default:
-//                return 0;
-//        }
         int count = 0;
         int lineCount = gridLayoutManager.getSpanCount();
         int kind = Datas.get(i).getType();
@@ -237,11 +184,6 @@ public class RecycleMorekindAddActivity extends AppCompatActivity {
         }else {//网格
             count = countItem  - lineCount +1;
         }
-//       if (gridLayoutManager.getSpanCount() != 1){//每行几个
-//           for (int j=0;j<Datas.size();j++){
-//           }
-//           count = 0;
-//       }
         return count;
     }
 }

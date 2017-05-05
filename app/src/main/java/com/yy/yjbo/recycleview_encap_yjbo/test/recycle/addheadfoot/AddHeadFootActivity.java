@@ -34,6 +34,7 @@ public class AddHeadFootActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private int countTopClick = 0;
     private int countButtomClick = 0;
+    private LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,17 @@ public class AddHeadFootActivity extends AppCompatActivity {
                 Datas.add(new Item(R.mipmap.ic_launcher_round, "你 get 新技能 " + i, 1));
             }
         }
-
+        Datas.add(new Item(R.mipmap.ic_launcher_round, "你 get 新技能 " + 30, 2));
         mMutipleAdaper = new MutipleAdaper(this, Datas);
         mWrapRecyclerAdapter = new WrapRecyclerAdapter(mMutipleAdaper);
         mRecyclerView.setAdapter(mWrapRecyclerAdapter);
 
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                MoveToPosition(linearLayoutManager,30);
+            }
+        },100);
         final View headerView = LayoutInflater.from(this).inflate(R.layout.layout_header, mRecyclerView, false);
         final View footView = LayoutInflater.from(this).inflate(R.layout.layout_footer, mRecyclerView, false);
         mWrapRecyclerAdapter.addHeaderView(headerView);
@@ -139,7 +146,19 @@ public class AddHeadFootActivity extends AppCompatActivity {
     protected void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target_onekind);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
+    }
+
+    /**
+     * RecyclerView 移动到当前位置，
+     *
+     * @param manager  设置RecyclerView对应的manager
+     * @param n  要跳转的位置
+     */
+    public static void MoveToPosition(LinearLayoutManager manager, int n) {
+        manager.scrollToPositionWithOffset(n, 0);
+        manager.setStackFromEnd(true);
     }
 
     Handler mHandler = new Handler(new Handler.Callback() {

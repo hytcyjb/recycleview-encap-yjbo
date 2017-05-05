@@ -9,5 +9,35 @@
         <item>recycle添加头、尾部文件(网格布局)</item>
         <item>recycle添加不同样式item</item>
         <item>recycle不同页面，并悬浮效果</item>
+        <item>TagFlowLayout页面</item>
+    </array>
+    <array name="tag_flow">
+        <item>对listview标签进行封装</item>
+        <item>对GridView标签进行封装</item>
+        <item>recycleview的单种类型的界面</item>
+        <item>recycleview的多种类型的界面</item>
+        <item>recycle添加头、尾部文件(非网格布局)</item>
+        <item>recycle添加头、尾部文件(网格布局)</item>
+        <item>recycle添加不同样式item</item>
+        <item>recycle不同页面，并悬浮效果</item>
+        <item>aa</item>
+        <item>abc</item>
+        <item>abcf</item>
+        <item>abkds</item>
+        <item>aads</item>
+        <item>aare</item>
+        <item>adsa</item>
+        <item>aadsr</item>
+        <item>fko</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
+        <item>dskl</item>
     </array>
 </resources>

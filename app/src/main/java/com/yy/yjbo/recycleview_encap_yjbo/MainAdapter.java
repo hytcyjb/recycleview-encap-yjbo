@@ -65,6 +65,8 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
                             commonutil.skipAct(mcontext, AddMuiltItemActivity.class,item.getTv1());
                         }else if (position == 7) {
                             commonutil.skipAct(mcontext, RecycleMorekindAddActivity.class,item.getTv1());
+                        }else if (position == 8) {
+                            commonutil.skipAct(mcontext, AddHeadFootActivity.class,item.getTv1());
                         }
                     }
                 })
