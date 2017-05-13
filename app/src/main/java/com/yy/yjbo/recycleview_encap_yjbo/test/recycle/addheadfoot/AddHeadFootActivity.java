@@ -62,9 +62,9 @@ public class AddHeadFootActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                MoveToPosition(linearLayoutManager,30);
+                MoveToPosition(linearLayoutManager, 30);
             }
-        },100);
+        }, 100);
         final View headerView = LayoutInflater.from(this).inflate(R.layout.layout_header, mRecyclerView, false);
         final View footView = LayoutInflater.from(this).inflate(R.layout.layout_footer, mRecyclerView, false);
         mWrapRecyclerAdapter.addHeaderView(headerView);
@@ -81,15 +81,15 @@ public class AddHeadFootActivity extends AppCompatActivity {
                 mWrapRecyclerAdapter.updateHeaderView(headerView, "更新头部,第" + countTopClick + "次！！！！");
                 if (countTopClick == 5) {
                     mMutipleAdaper.refreshOne(Datas, 4);
-                }else if (countTopClick == 10){
-                    Toast.makeText(AddHeadFootActivity.this,"再点击一次就去除头部！！！！",Toast.LENGTH_SHORT).show();
+                } else if (countTopClick == 10) {
+                    Toast.makeText(AddHeadFootActivity.this, "再点击一次就去除头部！！！！", Toast.LENGTH_SHORT).show();
                     mWrapRecyclerAdapter.updateHeaderView(headerView, "再点击一次就去除头部！！！！");
-                }else if (countTopClick == 11){
+                } else if (countTopClick == 11) {
 
                     countTopClick = 0;
 
                     mWrapRecyclerAdapter.removeHeaderView(headerView);
-                    Toast.makeText(AddHeadFootActivity.this,"5秒之后就恢复头文件",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddHeadFootActivity.this, "5秒之后就恢复头文件", Toast.LENGTH_SHORT).show();
 
                     mHandler.postDelayed(new Runnable() {
                         @Override
@@ -97,7 +97,7 @@ public class AddHeadFootActivity extends AppCompatActivity {
                             mWrapRecyclerAdapter.addHeaderView(headerView);
                             mWrapRecyclerAdapter.updateHeaderView(headerView, "点击可以更新头部！！！！");
                         }
-                    },5*1000);
+                    }, 5 * 1000);
 
                 }
             }
@@ -108,20 +108,22 @@ public class AddHeadFootActivity extends AppCompatActivity {
             public void onClick(View view) {
                 countButtomClick++;
                 mWrapRecyclerAdapter.updateFooterView(footView, "更新底部,第" + countButtomClick + "次！！！！");
-                if (countButtomClick == 5){
+                if (countButtomClick == 5) {
                     Toast.makeText(AddHeadFootActivity.this, "再点击一次就添加数据", Toast.LENGTH_SHORT).show();
-                }else if (countButtomClick == 6){//显示下一页的数据
+                    Datas.add(new Item(R.mipmap.ic_launcher_round, "你 get 新技能 " + 0, 1));
+                    mMutipleAdaper.addMore(Datas, 1);
+                } else if (countButtomClick == 6) {//显示下一页的数据
                     countButtomClick = 0;
                     int dataAgoL = mMutipleAdaper.getItemCount();
                     Datas = new ArrayList<>();
-                    for (int i = dataAgoL + 1; i <= 30+dataAgoL; i++) {
+                    for (int i = dataAgoL + 1; i <= 30 + dataAgoL; i++) {
                         if (i % 2 == 0) {
                             Datas.add(new Item(R.mipmap.ic_launcher_round, "我 get 新技能 " + i, 0));
                         } else {
                             Datas.add(new Item(R.mipmap.ic_launcher_round, "你 get 新技能 " + i, 1));
                         }
                     }
-                    mMutipleAdaper.addMore(Datas,1);
+                    mMutipleAdaper.addMore(Datas, 1);
                 }
             }
         });
@@ -139,22 +141,22 @@ public class AddHeadFootActivity extends AppCompatActivity {
                 mWrapRecyclerAdapter.notifyItemChanged(2);
 //                mWrapRecyclerAdapter.notifyItemChanged(3);
             }
-        },2000);
+        }, 2000);
 
     }
 
     protected void initView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.swipe_target_onekind);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-         linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
     /**
      * RecyclerView 移动到当前位置，
      *
-     * @param manager  设置RecyclerView对应的manager
-     * @param n  要跳转的位置
+     * @param manager 设置RecyclerView对应的manager
+     * @param n       要跳转的位置
      */
     public static void MoveToPosition(LinearLayoutManager manager, int n) {
         manager.scrollToPositionWithOffset(n, 0);
