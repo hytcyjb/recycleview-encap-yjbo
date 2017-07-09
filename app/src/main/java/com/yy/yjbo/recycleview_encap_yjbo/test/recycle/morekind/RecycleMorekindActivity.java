@@ -24,6 +24,7 @@ public class RecycleMorekindActivity extends AppCompatActivity {
     private ArrayList<Item> Datas;
     private MutipleAdaper mMutipleAdaper;
     private RecyclerView mRecyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
