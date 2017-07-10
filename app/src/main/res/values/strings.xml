@@ -10,6 +10,7 @@
         <item>recycle添加不同样式item</item>
         <item>recycle不同页面，并悬浮效果</item>
         <item>TagFlowLayout页面</item>
+        <item>水平的列表，点击居中</item>
     </array>
     <array name="tag_flow">
         <item>对listview标签进行封装</item>

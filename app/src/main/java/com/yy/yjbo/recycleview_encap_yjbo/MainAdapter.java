@@ -9,6 +9,7 @@ import com.yy.yjbo.recycleview_encap_yjbo.test.list.main.ListActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfoot.AddHeadFootActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addheadfootgird.AddHeadFootGirdActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.addmuiltitem.AddMuiltItemActivity;
+import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.clickaligncentre.AlginCentreActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecycleMorekindActivity;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekind.RecyclerMoreKindViewAdapter;
 import com.yy.yjbo.recycleview_encap_yjbo.test.recycle.morekindaddkind.RecycleMorekindAddActivity;
@@ -67,6 +68,8 @@ public class MainAdapter  extends RecyclerMoreKindViewAdapter<Item> {
                             commonutil.skipAct(mcontext, RecycleMorekindAddActivity.class,item.getTv1());
                         }else if (position == 8) {
                             commonutil.skipAct(mcontext, AddHeadFootActivity.class,item.getTv1());
+                        }else if (position == 9) {
+                            commonutil.skipAct(mcontext, AlginCentreActivity.class,item.getTv1());
                         }
                     }
                 })
